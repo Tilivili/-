@@ -1,10 +1,13 @@
 package family_tree;
 
+import family_tree.writer.Writable;
+
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Human {
+public class Human implements Serializable {
 
     private long id;
     private String name;
@@ -172,5 +175,6 @@ public class Human {
         Human human = (Human) obj;
         return human.getId() == getId();
     }
+
 }
 

@@ -1,10 +1,13 @@
 package family_tree;
+import family_tree.writer.Writable;
+import family_tree.writer.fileHandler;
+
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FamilyTree implements Serializable {
+public class FamilyTree implements Serializable{
     private long humansId;
     private List<Human> humanList;
 
@@ -58,5 +61,10 @@ public class FamilyTree implements Serializable {
         return sb.toString();
     }
 
+    public void saveToFile(String s) {
+    }
+
+    public void loadFromFile(String s) {
+    }
 }
 

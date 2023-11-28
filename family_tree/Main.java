@@ -1,13 +1,13 @@
 package family_tree;
-
+import java.io.IOException;
 import java.time.LocalDate;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         FamilyTree tree = testTree();
         System.out.println(tree);
     }
-    static FamilyTree testTree(){
+    static FamilyTree testTree() throws IOException {
         FamilyTree tree = new FamilyTree();
 
         Human vasya = new Human("Василий", Gender.Male, LocalDate.of(1963, 12, 10));
@@ -22,6 +22,8 @@ public class Main {
         Human grandMother = new Human("Лариса", Gender.Female, LocalDate.of(1945, 9, 1));
         grandMother.addChild(vasya);
         tree.add(grandMother);
+        tree.saveToFile("Tree1.out");
+
         return tree;
 
     }
