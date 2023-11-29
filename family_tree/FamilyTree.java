@@ -1,6 +1,6 @@
 package family_tree;
 import family_tree.writer.Writable;
-import family_tree.writer.fileHandler;
+import family_tree.writer.FileHandler;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -59,12 +59,6 @@ public class FamilyTree implements Serializable{
             sb.append("\n");
         }
         return sb.toString();
-    }
-
-    public void saveToFile(String s) {
-    }
-
-    public void loadFromFile(String s) {
     }
 }
 

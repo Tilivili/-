@@ -1,13 +1,31 @@
 package family_tree;
+import family_tree.writer.FileHandler;
+
 import java.io.IOException;
 import java.time.LocalDate;
 
+
 public class Main {
-    public static void main(String[] args) throws IOException {
-        FamilyTree tree = testTree();
+    public static void main(String[] args) {
+        FamilyTree tree = load();
+        //FamilyTree tree = testTree();
         System.out.println(tree);
+
+        save(tree);
     }
-    static FamilyTree testTree() throws IOException {
+
+    private static FamilyTree load() {
+        String filePath = "C:/Users/tiliv/IdeaProjects/SeminariOOP/family_tree/writer/tree.txt";
+        FileHandler fileHandler = new FileHandler();
+        return (FamilyTree) fileHandler.read(filePath);
+    }
+    private static void save(FamilyTree tree){
+        String filePath = "C:/Users/tiliv/IdeaProjects/SeminariOOP/family_tree/writer/tree.txt";
+        FileHandler fileHandler = new FileHandler();
+        if(fileHandler.save(tree, filePath)){
+        }
+    }
+    static FamilyTree testTree() {
         FamilyTree tree = new FamilyTree();
 
         Human vasya = new Human("Василий", Gender.Male, LocalDate.of(1963, 12, 10));
@@ -22,7 +40,7 @@ public class Main {
         Human grandMother = new Human("Лариса", Gender.Female, LocalDate.of(1945, 9, 1));
         grandMother.addChild(vasya);
         tree.add(grandMother);
-        tree.saveToFile("Tree1.out");
+
 
         return tree;
 
